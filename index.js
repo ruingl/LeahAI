@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadingDiv.style.display = 'block';
 
         try {
-            const apiUrl = `https://rui-api.ruinext-bots.repl.co/v1?question=${encodeURIComponent(question)}`;
+            const apiUrl = `https://rui-api.ruinext-bots.repl.co/v1?question=%22${encodeURIComponent(question)}%22`;
             const response = await fetch(apiUrl);
             const data = await response.json();
 
