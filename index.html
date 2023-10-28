@@ -5,17 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeahAI (ruingl)</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -23,27 +13,12 @@
         <h1>LeahAI</h1>
         <label for="question">Ask a question:</label>
         <input type="text" id="question" placeholder="Enter your question...">
-        <button onclick="askQuestion()">Ask</button>
+        <button id="askButton">Ask</button>
+        <div id="loading" class="loading-message">Please wait, AI is thinking...</div>
         <div id="response"></div>
     </div>
 
-    <script>
-        async function askQuestion() {
-            const question = document.getElementById('question').value;
-            const apiUrl = `https://rui-api.ruinext-bots.repl.co/v1?question=${encodeURIComponent(question)}`;
-
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-
-                const responseDiv = document.getElementById('response');
-                responseDiv.innerHTML = `<strong>You:</strong> ${data.content}<br><strong>AI:</strong> ${data.reply}`;
-            } catch (error) {
-                console.error(error);
-                alert('Error fetching data from the API.');
-            }
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>
